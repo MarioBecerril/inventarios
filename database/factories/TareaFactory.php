@@ -13,7 +13,7 @@ class TareaFactory extends Factory
      *         Schema::create('tareas', function (Blueprint $table) {
       *      $table->id();
       *      $table->string('nombre');
-      *      $table->text('descripción')->nullable();
+      *      $table->text('descripcion')->nullable();
       *      $table->enum('estado', ['Pendiente', 'Completada'])->default('Pendiente');
       *     $table->string('imagen')->nullable();
       *      $table->date('fecha_limite')->nullable();
@@ -27,7 +27,7 @@ class TareaFactory extends Factory
     {
         return [
             'nombre' => $this->faker->name,
-            'descripción' => $this->faker->text,
+            'descripcion' => $this->faker->text,
             'estado' => $this->faker->randomElement(['Pendiente', 'Completada']),
             'imagen' => $this->faker->word,
             'fecha_limite' => $this->faker->date(),
