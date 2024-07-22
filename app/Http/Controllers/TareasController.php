@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tarea;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class TareasController extends Controller
 {
@@ -42,9 +43,17 @@ class TareasController extends Controller
             'descripcion' => 'nullable|string',
             'estado' => 'required|in:Pendiente,Completada',
             'fecha_limite' => 'nullable|date',
+            'imagen' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        Tarea::create($request->all());
+        $data = $request->all();
+
+        if ($request->hasFile('imagen')) {
+            $imagePath = $request->file('imagen')->store('imagenes', 'public');
+            $data['imagen'] = $imagePath;
+        }
+
+        Tarea::create($data);
         return redirect()->route('tareas.index')->with('success', 'Tarea creada exitosamente.');
     }
 
@@ -65,9 +74,20 @@ class TareasController extends Controller
             'descripcion' => 'nullable|string',
             'estado' => 'required|in:Pendiente,Completada',
             'fecha_limite' => 'nullable|date',
+            'imagen' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-
-        $tarea->update($request->all());
+    
+        $data = $request->all();
+    
+        if ($request->hasFile('imagen')) {
+            if ($tarea->imagen) {
+                Storage::delete('public/' . $tarea->imagen);
+            }
+            $imagePath = $request->file('imagen')->store('imagenes', 'public');
+            $data['imagen'] = $imagePath;
+        }
+    
+        $tarea->update($data);
         return redirect()->route('tareas.index')->with('success', 'Tarea actualizada exitosamente.');
     }
 
