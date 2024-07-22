@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
      *  Schema::create('tareas', function (Blueprint $table) {
       *     $table->id();
       *     $table->string('nombre');
-      *     $table->text('descripción')->nullable();
+      *     $table->text('descripcion')->nullable();
       *     $table->enum('estado', ['Pendiente', 'Completada'])->default('Pendiente');
       *     $table->string('imagen')->nullable();
       *     $table->date('fecha_limite')->nullable();

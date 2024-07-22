@@ -9,15 +9,15 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
-        Schema::create('tareas', function (Blueprint $table) {
+        Schema::create('farmacias', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->text('descripcion')->nullable();
-            $table->enum('estado', ['Pendiente', 'Completada'])->default('Pendiente');
-            $table->string('imagen')->nullable();
-            $table->date('fecha_limite')->nullable();
+            $table->string('gerente');    
+            $table->string('telefono');
+            $table->string('email');
+            $table->string('direccion');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tareas');
+        Schema::dropIfExists('farmacias');
     }
 };

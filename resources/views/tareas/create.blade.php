@@ -8,7 +8,7 @@
 @section('content')
     <div class="container">
         <h3>Agregar Nueva Tarea</h3>
-        <form action="{{ route('tareas.store') }}" method="POST">
+        <form action="{{ route('tareas.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="nombre">Nombre</label>
@@ -25,11 +25,17 @@
                     <option value="Completada">Completada</option>
                 </select>
             </div>
-            <div class="form-group" style="width: 200px;">
-                <label for="fecha_limite">Fecha Límite</label>
-                <input type="date" id="fecha_limite" name="fecha_limite" class="form-control">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div class="form-group" style="width: 300px;">
+                    <label for="fecha_limite">Fecha Límite</label>
+                    <input type="date" id="fecha_limite" name="fecha_limite" class="form-control">
+                </div>
+                <div class="form-group" style="width: 400px;">
+                    <label for="imagen">Imagen</label>
+                    <input type="file" id="imagen" name="imagen" class="form-control" accept="image/*">
+                </div>
             </div>
-            <button type="submit" class="btn btn-primary">Guardar v2</button>
+            <button type="submit" class="btn btn-primary">Guardar</button>
         </form>
     </div>
 @endsection

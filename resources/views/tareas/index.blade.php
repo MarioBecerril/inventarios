@@ -50,6 +50,7 @@
             @endforeach
         </tbody>
     </table>
+    {{ $tareas->links() }}
 </div>
 @endsection
 
