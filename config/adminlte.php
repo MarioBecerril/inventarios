@@ -327,17 +327,17 @@ return [
         [
             'text' => 'Farmacias',
             'icon_color' => 'red',
-            'url' => '#',
+            'url' => 'farmacias',
         ],
         [
             'text' => 'Medicamentos',
             'icon_color' => 'yellow',
-            'url' => '#',
+            'url' => 'medicamentos',
         ],
         [
             'text' => 'Ventas',
             'icon_color' => 'cyan',
-            'url' => '#',
+            'url' => 'ventas',
         ],
         // listado de tareas:
         ['header' => 'TAREAS'],

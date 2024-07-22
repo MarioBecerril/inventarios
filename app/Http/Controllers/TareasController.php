@@ -20,13 +20,13 @@ class TareasController extends Controller
 
     public function index()
     {
-        $tareas = Tarea::orderBy('id', 'desc')->get();
+        $tareas = Tarea::orderBy('id', 'desc')->paginate(10);
         return view('tareas.index', compact('tareas'));
     }
 
     public function pendientes()
     {
-        $tareas = Tarea::where('estado', 'Pendiente')->orderBy('id', 'desc')->get();
+        $tareas = Tarea::where('estado', 'Pendiente')->orderBy('id', 'desc')->paginate(10);
         return view('tareas.index', compact('tareas'));
     }
 

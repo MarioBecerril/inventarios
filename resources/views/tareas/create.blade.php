@@ -29,7 +29,7 @@
                 <label for="fecha_limite">Fecha Límite</label>
                 <input type="date" id="fecha_limite" name="fecha_limite" class="form-control">
             </div>
-            <button type="submit" class="btn btn-primary">Guardar v2</button>
+            <button type="submit" class="btn btn-primary">Guardar</button>
         </form>
     </div>
 @endsection
